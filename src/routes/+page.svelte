@@ -119,7 +119,7 @@
     $: filteredArrivals = filterByMinute(arrivalsByMinute, timeFilter);
 
     $: filteredDeparturesAggregate = d3.rollup(filteredDepartures, v => v.length, d => d.start_station_id);
-    $: filteredArrivalsAggregate = d3.rollup(filteredDepartures, v => v.length, d => d.end_station_id);
+    $: filteredArrivalsAggregate = d3.rollup(filteredArrivals, v => v.length, d => d.end_station_id);
 
     $: stations = timeFilter === -1 ? stations : stations.map(station => {
         station = { ...station }; // Clone to avoid mutating the original
